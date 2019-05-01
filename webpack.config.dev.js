@@ -1,14 +1,14 @@
-const webpack = requiret("webpack");
-const path = requiret("path");
+const webpack = require("webpack");
+const path = require("path");
 
-const HtmlWebpackPlugIn = require("webpack-html-plugin");
+const HtmlWebpackPlugIn = require("html-webpack-plugin");
 
 process.env.NODE_ENV = "development";
 
 module.exports = {
   mode: "development",
   target: "web",
-  devTool: "cheap-module-source-map", //helps to orginal code in browser
+  devtool: "cheap-module-source-map", //helps to orginal code in browser
   entry: "./src/index",
   output: {
     path: path.resolve(__dirname, "build"),
@@ -26,10 +26,10 @@ module.exports = {
   plugins: [
     new HtmlWebpackPlugIn({
       template: "src/index.html",
-      favicon: "src/favico.ico"
+      favicon: "src/favicon.ico"
     })
   ],
-  modules: {
+  module: {
     rules: [
       {
         test: /\.(js|jsx)$/,
